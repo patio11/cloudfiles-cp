@@ -1,5 +1,7 @@
 #THIS IS ALPHA SOFTWARE.  USE AT YOUR OWN RISK.
 
+copyright (c) 2011 Patrick McKenzie.  MIT licensed (same as Ruby/Rails/etc).
+
 Copies files from the local hard disk to the specified Rackspace CloudFiles bucket.  Attempts to mirror local structure, to make it easy for you to use them again.
 
 To install dependencies:
