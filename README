@@ -1,0 +1,1 @@
+Copies files from the local hard disk to the specified Rackspace CloudFiles bucket.  Attempts to mirror local structure, to make it easy for you to use them again.

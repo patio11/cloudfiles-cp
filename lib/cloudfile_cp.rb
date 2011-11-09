@@ -45,6 +45,11 @@ optparse = OptionParser.new do |opts|
     @options[:verbose] = true
   end
 
+  @options[:overwrite] = false
+  opts.on('-f', '--force', "Overwrite files with the same name. (defaults to skipping them if you don't specify this flag)") do
+    @options[:overwrite] = true
+  end
+
   opts.on('-h', '--help', 'display this screen') do
     puts opts
     exit
