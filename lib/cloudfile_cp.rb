@@ -68,7 +68,7 @@ end
 
 
 unless @options[:username]
-  puts "You have to specifiy a Rackspace bucket name, either with the -u or --user command line switch, or by writing to ~/.rackspace_cloud_key (a YAML file, expects key:, bucket_name:, and user:)"
+  puts "You have to specifiy a Rackspace user name, either with the -u or --user command line switch, or by writing to ~/.rackspace_cloud_key (a YAML file, expects key:, bucket_name:, and user:)"
   exit 1
 end
 
