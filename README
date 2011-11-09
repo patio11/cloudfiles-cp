@@ -1,3 +1,5 @@
+#THIS IS ALPHA SOFTWARE.  USE AT YOUR OWN RISK.
+
 Copies files from the local hard disk to the specified Rackspace CloudFiles bucket.  Attempts to mirror local structure, to make it easy for you to use them again.
 
 Backup specified files to Rackspace Cloud Files.
