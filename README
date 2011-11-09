@@ -25,4 +25,3 @@ Usage: ruby cloudfile-cp.rb [@options] file1 [file2...]
     -v, --verbose                    The output of the script gets very chatty.
     -f, --force                      Overwrite files with the same name. (defaults to skipping them if you don't specify this flag)
     -h, --help                       display this screen
-

@@ -25,7 +25,7 @@ optparse = OptionParser.new do |opts|
   end
 
   @options[:username] = nil
-  opts.on('-u USER', '--user USER', 'specify user (default: reads in #{DEFAULT_KEY_FILE})') do |username|
+  opts.on('-u USER', '--user USER', "specify user (default: reads in #{DEFAULT_KEY_FILE})") do |username|
     @options[:username] = username
   end
 
@@ -33,12 +33,12 @@ optparse = OptionParser.new do |opts|
     CREDENTIAL_FILENAME = File.expand_path(cred_file)
   end
 
-  opts.on('-k KEY', '--key KEY', 'specify Rackspace API key (default: reads in #{DEFAULT_KEY_FILE} and looks for key:)') do |key|
+  opts.on('-k KEY', '--key KEY', "specify Rackspace API key (default: reads in #{DEFAULT_KEY_FILE} and looks for key:)") do |key|
     @options[:key] = key
   end
 
   @options[:bucket_name] = nil
-  opts.on('-b BUCKET_NAME', '--bucket BUCKET_NAME', 'specify bucket to back file up to (default: reads YAML in #{DEFAULT_KEY_FILE} and looks for bucket_name:)') do |bucket_name|
+  opts.on('-b BUCKET_NAME', '--bucket BUCKET_NAME', "specify bucket to back file up to (default: reads YAML in #{DEFAULT_KEY_FILE} and looks for bucket_name:)") do |bucket_name|
     @options[:bucket_name] = bucket_name
   end
 
