@@ -5,7 +5,9 @@ require 'yaml'
 require 'find'
 require 'pathname'
 
-CREDENTIAL_FILENAME = File.expand_path("~/.rackspace_cloud_credentials")
+DEFAULT_KEY_FILE = "~/.rackspace_cloud_credentials"
+
+CREDENTIAL_FILENAME = File.expand_path(DEFAULT_KEY_FILE)
 
 @options = {}
 
@@ -23,7 +25,7 @@ optparse = OptionParser.new do |opts|
   end
 
   @options[:username] = nil
-  opts.on('-u USER', '--user USER', 'specify user (default: reads in ~/.rackspace_cloud_credentials)') do |username|
+  opts.on('-u USER', '--user USER', 'specify user (default: reads in #{DEFAULT_KEY_FILE})') do |username|
     @options[:username] = username
   end
 
@@ -31,12 +33,12 @@ optparse = OptionParser.new do |opts|
     CREDENTIAL_FILENAME = File.expand_path(cred_file)
   end
 
-  opts.on('-k KEY', '--key KEY', 'specify Rackspace API key (default: reads in ~/.rackspace_cloud_credentials and looks for key:)') do |key|
+  opts.on('-k KEY', '--key KEY', 'specify Rackspace API key (default: reads in #{DEFAULT_KEY_FILE} and looks for key:)') do |key|
     @options[:key] = key
   end
 
   @options[:bucket_name] = nil
-  opts.on('-b BUCKET_NAME', '--bucket BUCKET_NAME', 'specify bucket to back file up to (default: reads YAML in ~/.rackspace_cloud_credentials and looks for bucket_name:)') do |bucket_name|
+  opts.on('-b BUCKET_NAME', '--bucket BUCKET_NAME', 'specify bucket to back file up to (default: reads YAML in #{DEFAULT_KEY_FILE} and looks for bucket_name:)') do |bucket_name|
     @options[:bucket_name] = bucket_name
   end
 
@@ -68,17 +70,17 @@ end
 
 
 unless @options[:username]
-  puts "You have to specifiy a Rackspace user name, either with the -u or --user command line switch, or by writing to ~/.rackspace_cloud_key (a YAML file, expects key:, bucket_name:, and user:)"
+  puts "You have to specifiy a Rackspace user name, either with the -u or --user command line switch, or by writing to #{DEFAULT_KEY_FILE} (a YAML file, expects key:, bucket_name:, and user:)"
   exit 1
 end
 
 unless @options[:key]
-  puts "You have to specifiy a Rackspace API key, either with the -k or --key command line switch, or by writing to ~/.rackspace_cloud_key (a YAML file, expects key:, bucket_name:, and user:)"
+  puts "You have to specifiy a Rackspace API key, either with the -k or --key command line switch, or by writing to #{DEFAULT_KEY_FILE} (a YAML file, expects key:, bucket_name:, and user:)"
   exit 1
 end
 
 unless @options[:bucket_name]
-  puts "You have to specifiy a Rackspace bucket name, either with the -b or --bucket command line switch, or by writing to ~/.rackspace_cloud_key (a YAML file, expects key:, bucket_name:, and user:)"
+  puts "You have to specifiy a Rackspace bucket name, either with the -b or --bucket command line switch, or by writing to #{DEFAULT_KEY_FILE} (a YAML file, expects key:, bucket_name:, and user:)"
   exit 1
 end
 
