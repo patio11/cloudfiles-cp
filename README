@@ -1,1 +1,15 @@
 Copies files from the local hard disk to the specified Rackspace CloudFiles bucket.  Attempts to mirror local structure, to make it easy for you to use them again.
+
+Backup specified files to Rackspace Cloud Files.
+Usage: ruby cloudfile-cp.rb [@options] file1 [file2...]
+    -r, --recursive                  Recursively follow directories.
+        --include-hidden             Copy files/directories beginning with , too.  (implies -r)
+    -u, --user USER                  specify user (default: reads in ~/.rackspace_cloud_credentials)
+    -c CREDENTIAL_FILE               load YAML file containing "key: RACKSPACE_KEY_GOES HERE" and "bucket_name: BUCKET_NAME_GOES_HERE"
+        --credentials
+    -k, --key KEY                    specify Rackspace API key (default: reads in ~/.rackspace_cloud_credentials and looks for key:)
+    -b, --bucket BUCKET_NAME         specify bucket to back file up to (default: reads YAML in ~/.rackspace_cloud_credentials and looks for bucket_name:)
+    -v, --verbose                    The output of the script gets very chatty.
+    -f, --force                      Overwrite files with the same name. (defaults to skipping them if you don't specify this flag)
+    -h, --help                       display this screen
+
